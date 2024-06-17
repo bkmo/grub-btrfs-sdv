@@ -25,6 +25,7 @@ prepare() {
 
 package() {
  cd $pkgname
+ sed -i 's/#GRUB_BTRFS_SYSTEMD_VOLATILE=/GRUB_BTRFS_SYSTEMD_VOLATILE=/' config                   ─╯
  install -Dm755 snapshot-detect -t "$pkgdir/usr/bin/"
  install -Dm644 snapshot-detect.desktop -t "$pkgdir/etc/xdg/autostart/"
 	make DESTDIR="${pkgdir}" INITCPIO=true GRUB_UPDATE_EXCLUDE=true install
