@@ -32,5 +32,5 @@ prepare() {
 
 package() {
 	cd "$pkgname"
-	make DESTDIR="${pkgdir}" INITCPIO=true install
+	make DESTDIR="${pkgdir}" INITCPIO=true GRUB_UPDATE_EXCLUDE=true install
 }
