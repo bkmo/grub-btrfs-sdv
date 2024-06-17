@@ -1,17 +1,18 @@
-# Maintainer dalto <dalto at fastmail dot com>
-# Contributor: Joona P <jonppep at gmail dot com>
-# Contributor: Carsten Feuls <archlinux@carstenfeuls.de>
-# Contributor: Anty <anty_fab at hotmail dot fr>
-# Contributor: Evan Anderson <evananderson@thelinuxman.us>
+# Forked from https://github.com/Antynea/grub-btrfs
 
 pkgname=grub-btrfs-sdv
 pkgver=4.13.1
 pkgrel=2
-pkgdesc="Include btrfs snapshots at boot options (grub menu)"
+pkgdesc="Include btrfs snapshots at boot options (grub menu), add systemd.volitile=state option"
 arch=('any')
-url="https://github.com/Antynea/grub-btrfs"
+url="https://github.com/bkmo/grub-btrfs-sdv"
 license=('GPL3')
 depends=('grub' 'btrfs-progs' 'bash' 'gawk')
+optdepends=(
+    'snapper: For snapper support'
+    'inotify-tools: For grub-btrfsd daemon'
+)
+backup=('etc/default/grub-btrfs/config')
 makedepends=('git')
 conflicts=('grub-btrfs' 'gub-btrfs-git')
 provides=('grub-btrfs')
@@ -33,5 +34,5 @@ prepare() {
 
 package() {
 	cd "$pkgname"
-	make DESTDIR="${pkgdir}" INITCPIO=true GRUB_UPDATE_EXCLUDE=true install
+	make DESTDIR="${pkgdir}" INITCPIO=true install
 }
