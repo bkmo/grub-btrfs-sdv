@@ -18,17 +18,13 @@ md5sums=('SKIP')
 
 prepare() {
   cd $pkgname
-
   git cherry-pick -n b2a3a2343cfb654950aba4a81ce50cf1b2eab962
-
   git cherry-pick -n 208c679ac5064abd0e5e65d5d6267c678b114398
-
   git cherry-pick -n 2054eb53d9d6734ceedae5a81c62b4195097114f
-
  }
 
 package() {
-	cd "$pkgname"
+ cd $pkgname
  install -Dm755 snapshot-detect -t "$pkgdir/usr/bin/"
  install -Dm644 snapshot-detect.desktop -t "$pkgdir/etc/xdg/autostart/"
 	make DESTDIR="${pkgdir}" INITCPIO=true GRUB_UPDATE_EXCLUDE=true install
