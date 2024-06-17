@@ -7,11 +7,8 @@ pkgdesc="Include btrfs snapshots at boot options (grub menu), add systemd.voliti
 arch=('any')
 url="https://github.com/bkmo/grub-btrfs-sdv"
 license=('GPL3')
-depends=('grub' 'btrfs-progs' 'bash' 'gawk')
-optdepends=(
-    'snapper: For snapper support'
-    'inotify-tools: For grub-btrfsd daemon'
-)
+depends=('grub' 'btrfs-progs' 'bash' 'gawk' 'inotify-tools')
+optdepends=('snapper: For snapper support')
 backup=('etc/default/grub-btrfs/config')
 makedepends=('git')
 conflicts=('grub-btrfs' 'gub-btrfs-git')
