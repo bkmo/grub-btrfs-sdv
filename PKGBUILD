@@ -1,7 +1,7 @@
 # Forked from https://github.com/Antynea/grub-btrfs
 
 pkgname=grub-btrfs-sdv
-pkgver=4.13.2
+pkgver=4.13.3
 pkgrel=1
 pkgdesc="Include btrfs snapshots at boot options (grub menu), add systemd.volitile=state option"
 arch=('any')
@@ -32,5 +32,7 @@ prepare() {
 
 package() {
 	cd "$pkgname"
+ install -Dm755 snapshot-detect -t "$pkgdir/usr/bin/"
+ install -Dm644 snapshot-detect.desktop -t "$pkgdir/etc/xdg/autostart/"
 	make DESTDIR="${pkgdir}" INITCPIO=true GRUB_UPDATE_EXCLUDE=true install
 }
