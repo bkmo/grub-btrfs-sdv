@@ -28,9 +28,7 @@ prepare() {
 
   git cherry-pick -n 2054eb53d9d6734ceedae5a81c62b4195097114f
 
-  git cherry-pick -n 7ba2c590303ca98e5fa792f4ea1026957434a174
-
-}
+ }
 
 package() {
 	cd "$pkgname"
