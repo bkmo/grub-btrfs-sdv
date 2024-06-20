@@ -482,7 +482,8 @@ detect_microcode()
             list_ucode+=("$cucode")
         done
     fi
-    if [[ -z "${list_ucode}" ]] || [[ "${GRUB_BTRFS_DISABLE_MICROCODE}" == true ]]; then list_ucode=(x); fi}
+    if [[ -z "${list_ucode}" ]] || [[ "${GRUB_BTRFS_DISABLE_MICROCODE}" == true ]]; then list_ucode=(x); fi
+}
 
 ## Title format in Grub-menu
 declare -A title_column=( [date]=Date [snapshot]=Snapshot [type]=Type [description]=Description ) # Column title that appears in the header
