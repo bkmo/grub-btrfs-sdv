@@ -44,7 +44,8 @@ GRUB_BTRFS_VERSION=4.13-yabsnap_info_support-2024-03-06T13:43:57+00:00
 # Default: ("")
 #GRUB_BTRFS_NINIT=("initramfs-custom.img" "initrd-custom.img" "otherinit-custom.gz")
 
-# Note to Arch Linux users: Arch currently includes the microcode in initramfs via the mkinitcpio hook. 
+# Note to Arch Linux users: Arch currently includes the microcode in the initramfs via
+# a mkinitcpio.conf "hook". 
 # This will disable Grub from loading it too.
 # Default: "false"
 #GRUB_BTRFS_DISABLE_MICROCODE=true
