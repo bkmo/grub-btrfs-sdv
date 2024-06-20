@@ -483,6 +483,7 @@ detect_microcode()
         done
     fi
     if [ -z "${list_ucode}" ]; then list_ucode=(x); fi
+    if [ "${GRUB_BTRFS_DISABLE_MICROCODE}" == true ]; then list_ucode=(x); fi
 }
 
 ## Title format in Grub-menu
