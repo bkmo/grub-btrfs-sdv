@@ -1,7 +1,7 @@
 # Forked from https://github.com/Antynea/grub-btrfs
 
 pkgname=grub-btrfs-sdv
-pkgver=4.13.1
+pkgver=4.13.1.1
 pkgrel=1
 pkgdesc="Include btrfs snapshots at boot options (grub menu), add systemd.volatile=state option"
 arch=('any')
