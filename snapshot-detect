@@ -1,20 +1,20 @@
 #!/bin/bash
 if grep -q timeshift /proc/cmdline; then
-notify-send -u critical -i timeshift --app-name Timeshift 'Snapshot Detected!' 'Booted into a Timeshift Snapshot. Please run "timeshift-launcher" to restore the snapshot.'
+notify-send -u critical -i timeshift --app-name Timeshift 'Snapshot Detected!' 'Booted into a Timeshift Snapshot. You can run "timeshift-launcher" to restore the snapshot.'
 exit 0
 fi
 
 if grep -q systemd.volatile /proc/cmdline; then
-notify-send -u critical -i btrfs-assistant-launcher --app-name 'Btrfs-Snapshot SDV' 'Btrfs Snapshot Detected!' 'Booted into a Sd.Volatile Snapshot. Please use rollback or Btrfs-Assistant to restore a snapshot.'
+notify-send -u critical -i btrfs-assistant-launcher --app-name 'Btrfs-Snapshot SDV' 'Btrfs Snapshot Detected!' 'Booted into a Sd.Volatile Snapshot. You can run rollback or Btrfs-Assistant to restore a snapshot.'
 exit 0
 fi
 
 if grep -q @snapshots /proc/cmdline && ! stat -f -c '%T' / | grep -iq 'overlay'; then
-notify-send -u critical -i btrfs-assistant-launcher --app-name 'Btrfs-Snapshot RO' 'Btrfs ro Snapshot Detected!' 'Booted into a ro Btrfs Snapshot. Please use rollback or Btrfs-Assistant to restore a snapshot.'
+notify-send -u critical -i btrfs-assistant-launcher --app-name 'Btrfs-Snapshot RO' 'Btrfs ro Snapshot Detected!' 'Booted into a ro Btrfs Snapshot. You can run rollback or Btrfs-Assistant to restore a snapshot.'
 exit 0
 fi
 
 if stat -f -c '%T' / | grep -iq 'overlay'; then
-notify-send -u critical -i btrfs-assistant-launcher --app-name 'Btrfs-Overlayfs Snapshot' 'Overlay RW Snapshot Detected!' 'Booted into a rw Btrfs-Overlayfs Snapshot, please use rollback or Btrfs-Assistant to restore a snapshot.'
+notify-send -u critical -i btrfs-assistant-launcher --app-name 'Btrfs-Overlayfs Snapshot' 'Overlay RW Snapshot Detected!' 'Booted into a rw Btrfs-Overlayfs Snapshot. You can run rollback or Btrfs-Assistant to restore a snapshot.'
 exit 0
 fi
